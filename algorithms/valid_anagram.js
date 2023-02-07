@@ -5,7 +5,7 @@
 // with the same frequency.
 // Example: "danger" "garden"
 
-// The best way to handle this kind of problem is a hash table
+// The best way to handle this kind of problem is with a hash table
 
 const s1 = "nameless";
 const s2 = "salesmen";
