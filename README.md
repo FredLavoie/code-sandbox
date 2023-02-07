@@ -1,6 +1,6 @@
 # code-sandbox
 
-A repository of code snippets, DSA and examples
+A repository of code snippets, DSA and examples.
 
 ### Index
 

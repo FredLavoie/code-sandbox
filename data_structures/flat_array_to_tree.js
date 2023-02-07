@@ -31,7 +31,7 @@ const data = [
     },
 ];
 
-/******************** unfinihsed ********************/
+/**************************** unfinihsed ****************************/
 function createTreeStructure(dataArray) {
     const treeArray = [];
     for (const element of dataArray) {

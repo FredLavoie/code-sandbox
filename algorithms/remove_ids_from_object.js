@@ -1,3 +1,38 @@
+// @ts-check
+
+/**
+ * @param {Record<string, any>[]} originalData
+ */
+function sanitizeData(originalData) {
+    const sanitizedData = [];
+
+    for (const objElem of originalData) {
+        const elem = remoreIDsFromObject(objElem);
+        sanitizedData.push(elem);
+    }
+    return sanitizedData;
+}
+
+/**
+ * @param {Record<string, any>} obj
+ */
+function remoreIDsFromObject(obj) {
+    const resultObj = {};
+    for (const key in obj) {
+        if (typeof obj[key] === "object") {
+            // if the value is an object, recurse through
+            // the value object
+            resultObj[key] = remoreIDsFromObject(obj[key]);
+        } else if (key !== "id") {
+            // as long as the key isn't 'id', add the value
+            // to the results object
+            resultObj[key] = obj[key];
+        }
+    }
+    return resultObj;
+}
+
+/** @type {Record<string, any>[]} */
 const data = [
     {
         absence: 10,
@@ -5,8 +40,6 @@ const data = [
         created_on: "2017-09-27T18:46:50.395266Z",
         employee: 10,
         end_time: "2017-09-25T23:00:53.000000Z",
-        first_break_minutes: 10,
-        first_meal_minutes: 30,
         foreman_profile: {
             classification: "",
             company: 2,
@@ -46,8 +79,6 @@ const data = [
         created_on: "2017-09-27T18:46:22.427563Z",
         employee: 10,
         end_time: "2017-09-25T22:00:53.000000Z",
-        first_break_minutes: 10,
-        first_meal_minutes: 30,
         foreman_profile: {
             company: 2,
             company_supplied_id: "1",
@@ -129,26 +160,7 @@ const data = [
     },
 ];
 
-function sanitizeData(originalData) {
-    const sanitizedData = [];
-
-    for (const objElem of originalData) {
-        const elem = remoreIDsFromObject(objElem);
-        sanitizedData.push(elem);
-    }
-    return sanitizedData;
-}
-
-function remoreIDsFromObject(obj) {
-    const resultObj = {};
-    for (const key in obj) {
-        if (typeof obj[key] === "object") {
-            resultObj[key] = remoreIDsFromObject(obj[key]);
-        } else if (key !== "id") {
-            resultObj[key] = obj[key];
-        }
-    }
-    return resultObj;
-}
-
 console.log(sanitizeData(data));
+
+// used to prevent issue with declaring 'data' variable globally
+export {};
