@@ -53,3 +53,22 @@ const secondPairIsAnagram = areAnagrams(hash3, hash4);
 
 console.log("*** firstPairIsAnagram: ", firstPairIsAnagram);
 console.log("*** secondPairIsAnagram: ", secondPairIsAnagram);
+
+//***********************************************************************************
+// Alternative method
+// This solution is simpler with less lines of code, however it is less
+// efficient in terms of space and time complexity
+
+/**
+ * @param {string} firstString
+ * @param {string} secondString
+ * @return {boolean}
+ */
+function areAnagrams2(firstString, secondString) {
+    if (firstString.length !== secondString.length) return false;
+    const firstStringSorted = firstString.split("").sort().join("");
+    const secondStringSorted = secondString.split("").sort().join("");
+    return firstStringSorted === secondStringSorted;
+}
+
+console.log("*** alternative anagram function: ", areAnagrams2(s1, s2));
