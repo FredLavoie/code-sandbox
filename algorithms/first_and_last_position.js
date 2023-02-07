@@ -42,3 +42,5 @@ function findFirstAndLast(arr, target) {
 const output = findFirstAndLast(arr, target);
 
 console.log("*** output: ", output);
+
+export {};
