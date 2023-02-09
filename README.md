@@ -4,6 +4,12 @@ A repository of code snippets, DSA and examples.
 
 ### Index
 
--   [Algorithms](./algorithms/)
--   [Data Structures](./data_structures/)
--   [JS Standard Methods](./js_standard_methods/)
+#### Javascript
+
+-   [Algorithms](./javascript/algorithms/)
+-   [Data Structures](./javascript/data_structures/)
+-   [JS Standard Methods](./javascript/js_standard_methods/)
+
+#### Python
+
+-   [Algorithms](./python/algorithms/)
